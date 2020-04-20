@@ -2,14 +2,21 @@ if [ -f "db.sqlite" ] ; then
   echo "db.sqlite exist"
 else
   echo "db.sqlite create"
-  curl -O https://raw.githubusercontent.com/jyp220/dataludi-sample/master/db.sqlite
+  curl -O https://raw.githubusercontent.com/hatiolab/operato-ecs/master/db.sqlite
 fi
 
 if [ -f "docker-compose.yml" ] ; then
   echo "docker-compose.yml exist"
 else
   echo "docker-compose.yml create"
-  curl -O https://raw.githubusercontent.com/jyp220/dataludi-sample/master/docker-compose.yml
+  curl -O https://raw.githubusercontent.com/hatiolab/operato-ecs/master/docker-compose.yml
+fi
+
+if [ -f "config.production.js" ] ; then
+  echo "config.production.js exist"
+else
+  echo "config.production.js create"
+  curl -O https://raw.githubusercontent.com/hatiolab/operato-ecs/master/config.production.js
 fi
 
 
@@ -19,16 +26,14 @@ fi
 
 HOST_PORT=3000
 
-echo "1 -------- : ${HOST_PORT}"
 if [ $# -eq 0 ] ; then
   echo "Warning: default port 3000"
 else
   HOST_PORT=$1
 fi
 
-echo "2 -------- : $0"
-echo "3 -------- : $1"
-echo "4 -------- : ${HOST_PORT}"
+
+echo "HOST_PORT : ${HOST_PORT}"
 
 echo "HostPort="$HOST_PORT > .env
 
