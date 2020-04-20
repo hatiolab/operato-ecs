@@ -8,7 +8,7 @@ services:
       - app
   app:
     container_name: operato-ecs
-    image: jyp220/operato-ecs:0.2
+    image: jyp220/operato-ecs:0.3
     volumes:
       - ./db.sqlite:/app/db.sqlite
     ports:
