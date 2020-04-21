@@ -2,27 +2,17 @@ if [ -f "db.sqlite" ] ; then
   echo "db.sqlite exist"
 else
   echo "db.sqlite create"
-  curl -O https://raw.githubusercontent.com/hatiolab/operato-ecs/master/db.sqlite
+  curl -O https://raw.githubusercontent.com/things-factory/installer/master/operato-ecs/db.sqlite
 fi
 
-if [ -f "docker-compose.yml" ] ; then
-  echo "docker-compose.yml exist"
-else
-  echo "docker-compose.yml create"
-  curl -O https://raw.githubusercontent.com/hatiolab/operato-ecs/master/docker-compose.yml
-fi
+curl -O https://raw.githubusercontent.com/things-factory/installer/master/operato-ecs/docker-compose.yml
 
 if [ -f "config.production.js" ] ; then
   echo "config.production.js exist"
 else
   echo "config.production.js create"
-  curl -O https://raw.githubusercontent.com/hatiolab/operato-ecs/master/config.production.js
+  curl -O https://raw.githubusercontent.com/things-factory/installer/master/operato-ecs/config.production.js
 fi
-
-
-
-# echo "start"
-# echo $1
 
 HOST_PORT=3000
 
@@ -39,5 +29,3 @@ echo "HostPort="$HOST_PORT > .env
 
 
 docker-compose up
-
-# echo "end"
